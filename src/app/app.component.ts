@@ -9,11 +9,11 @@ import { WikipediaService } from './wikipedia.service';
 export class AppComponent {
   constructor(private wikipedia: WikipediaService) {}
 
-  pages = [];
+  pages: {}[] = [];
 
   onTerm(term: string) {
-    this.wikipedia.search(term).subscribe((response: any) => {
-      this.pages = response.query.search;
+    this.wikipedia.search(term).subscribe((pages) => {
+      this.pages = pages;
     });
   }
 }
